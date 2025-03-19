@@ -16,5 +16,10 @@ class MainActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+
+//      Fungsi Database
+        val db = ColorDatabase.getInstance(this)
+        val colorBlue = Color(1, "#00FF00", "Blue")
+        db.colorDao().insert(colorBlue)
     }
 }
