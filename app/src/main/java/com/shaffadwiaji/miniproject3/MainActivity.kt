@@ -19,7 +19,7 @@ class MainActivity : AppCompatActivity() {
 
 //      Fungsi Database
         val db = ColorDatabase.getInstance(this)
-        val colorBlue = Color(1, "#00FF00", "Blue")
-        db.colorDao().insert(colorBlue)
+        val colorBlue = Color(0, "#00FF00", "Green")
+        db.ColorDao().insert(colorBlue)
     }
 }
