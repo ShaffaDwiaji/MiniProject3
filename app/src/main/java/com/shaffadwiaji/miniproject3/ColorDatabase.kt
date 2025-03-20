@@ -7,7 +7,7 @@ import androidx.room.RoomDatabase
 
 @Database(entities = [Color::class], version = 1)
 abstract class ColorDatabase : RoomDatabase() {
-    abstract fun colorDao(): ColorDao
+    abstract fun ColorDao(): ColorDao
     companion object {
         @Volatile
         private var INSTANCE: ColorDatabase? = null
@@ -15,8 +15,10 @@ abstract class ColorDatabase : RoomDatabase() {
             return INSTANCE ?: synchronized(this) {
                 Room.databaseBuilder(
                     context.applicationContext,
-                    ColorDatabase::class.java, "color_database"
-                ).fallbackToDestructiveMigration()
+                    ColorDatabase::class.java,
+                    "color_database"
+                )
+                    .fallbackToDestructiveMigration()
                     .build()
                     .also{ INSTANCE = it}
             }
